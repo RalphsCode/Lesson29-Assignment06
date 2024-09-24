@@ -44,7 +44,7 @@ class Queue {
   dequeue() {
     /* remove the first node in the queue */
     if (this.head === null) {
-      throw ("Error: The Queue is empty.");
+      throw new Error("Error: The Queue is empty.");
     }
 
     // create a variable to return
@@ -68,9 +68,8 @@ class Queue {
 
   peek() {
     if (this.head === null) {
-      throw ("Error: The Queue is empty.");
+      throw new Error("Error: The Queue is empty.");
     }
-
     return this.head.val
   }
 
