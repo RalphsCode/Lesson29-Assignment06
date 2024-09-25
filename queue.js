@@ -13,8 +13,8 @@ class Node {
 class Queue {  // FIFO
   /* Creates a queue of values, using a Linked List */
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.first = null;
+    this.last = null;
     this.size = 0;
   }
 
@@ -26,13 +26,13 @@ class Queue {  // FIFO
     const newNode = new Node(val);
 
     // if the queue is empty
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
+    if (!this.first) {
+      this.first = newNode;
+      this.last = newNode;
     } else {
       // add the new node to the existing queue
-      this.tail.next = newNode;
-      this.tail = newNode; 
+      this.last.next = newNode;
+      this.last = newNode; 
     }
     this.size++;
   }  // END enqueue()
@@ -43,19 +43,19 @@ class Queue {  // FIFO
 
   dequeue() {
     /* remove the first node in the queue */
-    if (this.head === null) {
+    if (this.first === null) {
       throw new Error("Error: The Queue is empty.");
     }
 
     // create a variable to return
-    const dequeuedVal = this.head;
+    const dequeuedVal = this.first;
 
-    // change the head to the next node
-    this.head = dequeuedVal.next;
+    // change the first/head to the next node
+    this.first = dequeuedVal.next;
 
     // if the queue is now empty
-    if (this.head === null) {
-      this.tail = null;
+    if (this.first === null) {
+      this.last = null;
     }
 
     this.size--;
@@ -67,16 +67,16 @@ class Queue {  // FIFO
   /** peek(): return the value of the first node in the queue. */
 
   peek() {
-    if (this.head === null) {
+    if (this.first === null) {
       throw new Error("Error: The Queue is empty.");
     }
-    return this.head.val
+    return this.first.val
   }
 
   /** isEmpty(): return true if the queue is empty, otherwise false */
 
   isEmpty() {
-    if (this.head) {
+    if (this.first) {
       return false;
     }
     return true;
