@@ -10,7 +10,7 @@ class Node {
 /** Queue: chained-together nodes where you can
  *  remove from the front or add to the back. */
 
-class Queue {
+class Queue {  // FIFO
   /* Creates a queue of values, using a Linked List */
   constructor() {
     this.head = null;
